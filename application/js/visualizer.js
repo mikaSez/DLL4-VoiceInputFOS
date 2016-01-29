@@ -1,36 +1,46 @@
 
-	function messageHandler(event) {
-	    // On récupère le message envoyé par la page principale
-	    var messageSent = event.data;
-	    // On prépare le message de retour
-	    var messageReturned = "Bonjour " + messageSent + " depuis un thread séparé !";
-	    // On renvoit le tout à la page principale
-	    this.postMessage(messageReturned);
-	    console.info(messageReturned);
-	}
 
-	// On définit la fonction à appeler lorsque la page principale nous sollicite
-	// équivalent à this.onmessage = messageHandler;
-	this.addEventListener('message', messageHandler, false);
-
-	var Visualizer = function(can, audio, conf){
+	var Visualizer = function(can, audio,conf){
 		var canvas = can;
 		var audioCtx = audio;
-		var canvasCtx = canvas.getContext('2d');
+		var canvasCtx;
 		var analyser = audioCtx.createAnalyser();
 		var config = conf || { };
-		var bufferLength;
-		var dataArray;
-		var worker;
+		var animation;
+		var bufferLength = config.bufferLength || 1024;
 
+		var dataArray = new Uint8Array();
+		var worker = new Worker("js/visualizerWorker.js");
+
+
+
+		worker.onmessage = function(event){
+			switch(event.data.command) {
+				case 'process': 
+				console.info(event.data);
+				dataArray = Uint8Array.from(event.data.data);
+				console.info(dataArray);
+				console.log("new buffer recieved");
+				break;
+				case  'stop':
+				cancelAnimationFrame(animation);
+				dataArray = new Uint8Array();
+				draw();
+				console.info("stop order recieved");
+				break;
+				case  'start':
+				update();
+				console.info("start order recieved");
+				break;
+		}
+		};
 		var init = function(){
+			console.info("initialization of DOM elements of the visualizer");
+			 if(!!!canvas){
+			 	canvas = document.getElementById("canvas");
+			 }
 			 canvasCtx = canvas.getContext('2d');
-			 analyser = audioCtx.createAnalyser();
-			 config = conf || { };
-			 analyser.fftSize = config.fftSize || 2048 ;
-			 bufferLength = analyser.frequencyBinCount;
-			 dataArray = new Uint8Array(bufferLength);
-			 draw();
+			 analyser.fftSize = 2048;
 		}
 		
 		
@@ -38,11 +48,18 @@
 		 
 	    var draw = function() {  
 		    canvasCtx.save();  
+		   
 		    analyser.getByteTimeDomainData(dataArray);
 		    canvasCtx.fillStyle = 'rgb(200, 200, 200)';
 		    canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
-		    canvasCtx.lineWidth = 2;
-		    canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
+		    canvasCtx.lineWidth = 1;
+
+		    var gradient=canvasCtx.createLinearGradient(0,0,170,0);
+			gradient.addColorStop("0","magenta");
+			gradient.addColorStop("0.5","blue");
+			gradient.addColorStop("1.0","red");
+
+		    canvasCtx.strokeStyle = gradient;
 		    canvasCtx.beginPath();
 		    var sliceWidth = canvas.width * 1.0 / bufferLength;
 		    var x = 0;
@@ -65,14 +82,20 @@
 	  };
 
 	  var update = function(){
-	  	requestAnimationFrame(draw);  
+	  	draw()
+	  	animation = requestAnimationFrame(update);  
 	  }
 	  var getWorker = function(){
 	  	return worker;
 	  }
+	  var stream = function(source){
+	  		source.connect(analyser);
+	  }
 	  return {
-	  	update : update,
-	  	init : init,
-	  	worker : getWorker
+	  	 update,
+	  	 init,
+	  	 getWorker,
+	  	 stream
 	  };
 	}
+

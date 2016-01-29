@@ -3,8 +3,8 @@ requirejs.config({
 });
 
 // Start the main app logic.
-requirejs(['AR/audioRecorder', 'AR/audioRecorderWorker', 'domReady'],
-function   (recorder, recorderWorker, domReady) {
+requirejs(['AR/audioRecorder', 'AR/audioRecorderWorker', 'domReady', "visualizer"],
+function   (recorder, recorderWorker, domReady, vis) {
     // Deal with prefixed APIs
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     navigator.getUserMedia = navigator.getUserMedia ||
@@ -17,6 +17,8 @@ function   (recorder, recorderWorker, domReady) {
     } catch (e) {
         console.log("Error initializing Web Audio");
     }
+
+
   
 
     var App = function(){
@@ -35,9 +37,11 @@ function   (recorder, recorderWorker, domReady) {
              console.info("We need to initialize the application");
              var input = audioContext.createMediaStreamSource(stream);
              recorder = new AudioRecorder(input, config);
-             visualizer = new Worker("js/visualizer.js");
+             visualizer = new Visualizer(document.getElementById("canvas"),audioContext);
+             visualizer.stream(input); 
+             visualizer.init();
              if (recognizer) recorder.consumers.push(recognizer);
-             if (visualizer) recorder.consumers.push(visualizer);
+             if (visualizer) recorder.consumers.push(visualizer.getWorker());
              console.info("application initialized, starting.");
              recorder.start();
              initialized = true;
@@ -61,9 +65,14 @@ function   (recorder, recorderWorker, domReady) {
           *Asks user to give us acces to his microphone
           */
           var askForMicrophone = function(callback){
+
              if (navigator.getUserMedia) {
-                    navigator.getUserMedia({audio: true}, init,cannotStartUserMedia);
+                   navigator.getUserMedia({ audio: true }, function(stream) {
+                    // https://bugzilla.mozilla.org/show_bug.cgi?id=934512
+                    window.source = audioContext.createMediaStreamSource(stream);
                     
+                    init(stream);
+                  }, cannotStartUserMedia);   
                 }
                 else { 
                     console.log("No web audio support in this browser");
@@ -86,9 +95,9 @@ function   (recorder, recorderWorker, domReady) {
                 start();
             }
           }
+
+          
           return {
-            start:start,
-            stop: stop,
             switchRecordingState
           };
     }
@@ -97,7 +106,6 @@ function   (recorder, recorderWorker, domReady) {
     var app = new App();
     domReady(function(){
         document.getElementById("audioSwitch").addEventListener("click", function(){app.switchRecordingState()});  
-
     });
 
 });
