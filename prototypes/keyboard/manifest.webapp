@@ -1,0 +1,28 @@
+{
+  "name": "Audio KeyBoard",
+  "description": "An useless virtual keyboard that listen to audio input.",
+  "type": "privileged",
+  "role": "input",
+  "launch_path": "/settings.html",
+  "developer": {
+    "name": "MikaSez",
+    "url": "https://github.com/MikaSez/"
+  },
+  "permissions": {
+    "input": {
+      "description": "Send key events and characters to user focused input fields."
+    },
+   "audio-capture": {
+     "description": "Required to capture audio via getUserMedia"
+   }
+  },
+  "inputs": {
+    "lol": {
+      "launch_path": "/index.html",
+      "name": "\\o/",
+      "description": "Audio layout",
+      "types": ["text", "url", "number"]
+    }
+  },
+  "default_locale": "en-US"
+}
