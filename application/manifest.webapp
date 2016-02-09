@@ -1,7 +1,9 @@
 {
   "name": "Audio Visualization",
   "description": "A Simple listening app",
-  "launch_path": "/index.html",
+  "type": "privileged",
+  "role": "input",
+  "launch_path": "/settings.html",
   "icons": {
     "16": "/icons/icon16x16.png",
     "48": "/icons/icon48x48.png",
@@ -10,12 +12,26 @@
   },
   "developer": {
     "name": "MikaSez",
-    "url": "http://github.com/mikasez"
+    "url": "https://github.com/MikaSez/"
   },
   "permissions": {
+    "input": {
+      "description": "Send key events and characters to user focused input fields."
+    },
    "audio-capture": {
      "description": "Required to capture audio via getUserMedia"
-	   }
-	}
-  
+   },
+    "speech-recognition" : {
+      "description" : "Speech recognition"
+    }
+  },
+  "inputs": {
+    "audioVisual": {
+      "launch_path": "/index.html",
+      "name": "AudioVisual",
+      "description": "Audio layout",
+      "types": ["text", "url", "number"]
+    }
+  },
+  "default_locale": "fr-FR"
 }
