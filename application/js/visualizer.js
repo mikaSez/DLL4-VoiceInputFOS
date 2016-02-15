@@ -82,7 +82,7 @@
 	  };
 
 	  var update = function(){
-	  	draw()
+	  	draw();
 	  	animation = requestAnimationFrame(update);  
 	  }
 	  var getWorker = function(){

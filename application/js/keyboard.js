@@ -17,9 +17,10 @@ function init() {
     evt.preventDefault();
   });
 
-  var sendKeyElement = document.getElementById('sendKey');
+  var sendKeyElement = document.getElementById('startAudio');
   sendKeyElement.addEventListener('click', function sendKeyHandler() {
-     draw();
+    // draw();
+	 //start();
   });
 
   var switchElement = document.getElementById('switchLayout');

@@ -2,19 +2,23 @@
 <head>   
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1"> 
-	<title>Visualization with audioRecorder.js</title>
-	<script data-main="js/app.js" src="js/require.js"></script>
-
+	<title>AudioVisual</title>
+	<script data-main="js/app.js" src="js/require.js" defer></script>
+	<script type="text/javascript" src="js/keyboard.js"></script>
+	<script type="text/javascript" src="js/visualizer.js"></script>
+	<link rel="stylesheet" type="text/css" href="style/audiovisual.css" />
 </head>
 <body>
 	<h1>Audio visualization</h1>
     
-    <canvas id="canvas" width="300" height="300">
-        A super interesting wave function
-   </canvas>
-	<div>
-		<button id="audioSwitch">Switch recording</button>
+	<div id="keyboard">
+		<canvas id="canvas" width="300" height="300">
+			A super interesting wave function
+		</canvas>
+		<div>
+			<button id="startAudio">Start listening</button>
+			<button id="switchLayout" class="key">Switch layout</button>
+		</div>
 	</div>
-
 </body>
 </html>
