@@ -1,0 +1,32 @@
+body {
+	font-family: Verdana;
+	font-size: 11px;
+}
+
+h1 {
+	font-family: Times New Roman;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	font-size: 32px;
+	margin-bottom: -28px;
+}
+
+h2 {
+	font-family: Times New Roman;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	font-size: 20px;
+}
+
+h3 {
+	font-family: Times New Roman;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	font-size: 14px;
+}
+
+#resultat {
+	border: 1px solid black;
+	margin:auto;
+	text-align: justify;
+}
