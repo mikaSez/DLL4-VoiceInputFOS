@@ -3,11 +3,13 @@ var keyboardElement;
 
 function init() {
   keyboardElement = document.getElementById('keyboard');
+  if(window.navigator.mozInputMethod){
+      window.navigator.mozInputMethod.oninputcontextchange = function() {
+      inputContext = navigator.mozInputMethod.inputcontext;
+      resizeWindow();
+      };
+  }
 
-  window.navigator.mozInputMethod.oninputcontextchange = function() {
-    inputContext = navigator.mozInputMethod.inputcontext;
-    resizeWindow();
-  };
 
   window.addEventListener('resize', resizeWindow);
 
@@ -16,14 +18,27 @@ function init() {
   // Otherwise, right after mousedown event, the app will receive a focus event.
     evt.preventDefault();
   });
-
-  var sendKeyElement = document.getElementById('startAudio');
+    
+  var switchElement = document.getElementById('switchLayout');
+  var sendKeyElement = document.getElementById('switchAudio');
+  var switchIcon = document.getElementById("switch-icon");
+  
   sendKeyElement.addEventListener('click', function sendKeyHandler() {
-    // draw();
-	 //start();
+      if(sendKeyElement.className.indexOf("start")!=-1){
+          sendKeyElement.className = "stop";
+          switchIcon.className="icon-mute";
+          switchElement.className = "stopLayout"
+          setTimeout(function () {
+                switchElement.className += ' removed';
+        }, 3000);
+      } else {
+          sendKeyElement.className = "start";
+          switchIcon.className="icon-mic";       
+          switchElement.className = "startLayout"
+      }
+    
   });
 
-  var switchElement = document.getElementById('switchLayout');
   switchElement.addEventListener('click', function switchHandler() {
     var mgmt = navigator.mozInputMethod.mgmt;
     mgmt.next();

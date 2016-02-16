@@ -28,5 +28,124 @@ audio {
   display: none;
 }
 
-#canvas{
+canvas {
+    width : 100%;
+    height: 100%;
+}
+
+#switchAudio {
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    height :10rem;
+    width: 10rem;
+    border-radius: 100px;
+    border: 2px solid white;
+    color : white;
+}
+
+#switchLayout{
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    height :10rem;
+    width: 10rem;
+    border-radius: 100px;
+    border: 2px solid white;
+    background-color: black;
+    color : white;   
+}
+
+.startLayout{
+    animation: startLayoutPosition 3s forwards;
+}
+
+.stopLayout{
+    animation: stopLayoutPosition 3s forwards;
+}
+
+.stop{
+    background-color: red;  
+    opacity: 0.4;
+    animation: stopPosition 3s forwards;
+}
+.start{
+    background-color: darkgreen;
+    opacity: 0.9;
+    animation: startPosition 3s forwards;
+}
+
+.removed{
+    display: none;
+}
+
+@font-face {
+      font-family: 'fontello';
+      src: url('../font/fontello.eot?87452419');
+      src: url('../font/fontello.eot?87452419#iefix') format('embedded-opentype'),
+           url('../font/fontello.woff?87452419') format('woff'),
+           url('../font/fontello.ttf?87452419') format('truetype'),
+           url('../font/fontello.svg?87452419#fontello') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+
+.icon-mic, .icon-mute, .icon-keyboard {
+    font-size: 40;
+}
+/* Chrome, Safari, Opera */
+@-moz-keyframes startPosition {
+    from {left: 40%; opacity:0.4; background-color: red;}
+    to {left: 60%; opacity: 0.9;background-color: darkgreen;}
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes startPosition {
+    from {left: 40%; opacity:0.4; background-color: red;}
+    to {left: 60%; opacity: 0.9;background-color: darkgreen;}
+}
+
+@keyframes startPosition {
+    from {left: 40%; opacity:0.4; background-color: red;}
+    to {left: 60%; opacity: 0.9;background-color: darkgreen;}
+}
+
+
+/* Chrome, Safari, Opera */
+@-moz-keyframes stopPosition {
+    from {left: 60%; opacity:0.9; background-color: darkgreen;}
+    to {left: 40%; opacity: 0.4; background-color: red;}
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes stopPosition {
+    from {left: 60%; opacity:0.9; background-color: darkgreen;}
+    to {left: 40%; opacity: 0.4; background-color: red;}
+}
+
+@keyframes stopPosition {
+    from {left: 60%; opacity:0.9; background-color: darkgreen;}
+    to {left: 40%; opacity: 0.4; background-color: red;}
+}
+
+
+/* Chrome, Safari, Opera */
+@-moz-keyframes startLayoutPosition {
+    from {left: 40%; opacity:0;}
+    to {left: 20%; opacity: 0.9;}
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes startLayoutPosition {
+    from {left: 40%; opacity:0; visibility: 0;}
+    to {left: 20%; opacity: 0.9; visibility: 1;}
+}
+
+@keyframes startLayoutPosition {
+    from {left: 40%; opacity:0;}
+    to {left: 20%; opacity: 0.9;}
+}
+
+
+@keyframes stopLayoutPosition {
+    from {left: 20%; opacity:0.9;}
+    to {left: 40%; opacity: 0;}
 }

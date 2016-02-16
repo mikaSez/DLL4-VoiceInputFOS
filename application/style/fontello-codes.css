@@ -1,0 +1,4 @@
+
+.icon-mic:before { content: '\e800'; } /* '' */
+.icon-mute:before { content: '\e801'; } /* '' */
+.icon-keyboard:before { content: '\e803'; } /* '' */

@@ -105,7 +105,11 @@ function   (recorder, recorderWorker, domReady, vis) {
       
     var app = new App();
     domReady(function(){
-        document.getElementById("startAudio").addEventListener("click", function(){app.switchRecordingState()});  
+        var switchAudio = document.getElementById("switchAudio");
+        switchAudio.addEventListener("click", function(){
+            app.switchRecordingState();
+            
+        });  
     });
 
 });
