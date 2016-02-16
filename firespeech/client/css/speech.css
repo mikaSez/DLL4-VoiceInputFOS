@@ -1,32 +1,12 @@
-body {
-	font-family: Verdana;
-	font-size: 11px;
-}
-
-h1 {
-	font-family: Times New Roman;
-	text-transform: uppercase;
-	letter-spacing: -1px;
-	font-size: 32px;
-	margin-bottom: -28px;
-}
-
-h2 {
-	font-family: Times New Roman;
-	text-transform: uppercase;
-	letter-spacing: -1px;
-	font-size: 20px;
-}
-
-h3 {
-	font-family: Times New Roman;
-	text-transform: uppercase;
-	letter-spacing: -1px;
-	font-size: 14px;
-}
-
 #resultat {
-	border: 1px solid black;
+	border: 1px solid #8e44ad;
 	margin:auto;
 	text-align: justify;
+}
+
+.contact-form-icon .fa {
+  color: #8e44ad;
+  padding: 14px 12px;
+  pointer-events: none;
+  position: absolute;
 }

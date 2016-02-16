@@ -1,32 +1,148 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	  <title></title>
-	  <meta charset="utf-8">
-	  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1"> 
-	  <script src="scripts/speech.js"></script>
-	  <link rel="stylesheet" type="text/css" href="css/speech.css" />
+		<!-- Site Title -->
+        <title>FireSpeech</title>
+
+        <!-- Site Meta Info -->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1"> 
+        <meta name="description" content="Simple recognition speech.">
+        <meta name="keywords" content="recognition speech, responsive">
+
+
+        <!-- Essential CSS Files -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+        <!-- Color Styles -->
+        <link rel="stylesheet" href="css/colors/default-color.css">
+        <link rel="stylesheet" href="css/colors/color-purple.css">
+        
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="css/responsive.css">
+
+        <!-- Google Web Fonts =:= Raleway , Montserrat and Roboto -->
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:700,400' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:700,500,400' rel='stylesheet' type='text/css'>
+
+        <!-- Essential JS Files -->
+        <script src="js/vendor/jquery-1.11.3.min.js"></script>
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+        <!-- IE9 Scripts -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+		<!-- Mon script et mon css -->
+		<script src="scripts/speech.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/speech.css" />
 	</head>
 	<body>
-		<h1>FireSpeech</h1>
-		<h2>Parles et j'écris</h2>
-		<p>
-			Il suffit de parler et ce que vous dites apparaîtra ci-dessous. Comme par magie !<br/>
-			Ensuite, corrigez votre texte, copiez le et collez le où bon vous semble.
-		</p>
+		<!-- HEADER -->
+		<header class="header-area">
+			<!-- NAVIGATION -->
+			<nav class="navbar navbar-custom tb-nav" role="navigation">
+				<div class="container">        
+				  <div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#tb-nav-collapse">
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand logo" href="#"><h2>fire<span>speech</span></h2></a>
+				  </div>
+			  
+				  <div class="collapse navbar-collapse" id="tb-nav-collapse">
+			  
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a class="page-scroll" href="#top">Home</a></li>
+						<!-- <li><a class="page-scroll" href="#about">About</a></li>
+						<li><a class="page-scroll" href="#contact">Contact Us</a></li> -->
+					</ul>
+				  </div>
+				</div>
+			</nav>
+			<!-- /NAVIGATION -->
+		</header>
+		<!-- /HEADER -->
 		
-		<h3>Voici ce que vous avez dit :</h3>
-		<p>
-			<textarea type="text" id="resultat" rows="10" cols="60"></textarea>
-		</p>
+		<!-- TOP SECTION -->
+        <section class="hero-section static-bg" id="top">
+                <div class="slider-caption">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Title -->
+                            <h1>welcome to <span>firespeech</span></h1>
+                            <!-- Subtitle -->
+                            <h5>you speak and we write !</h5>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!-- /TOP SECTION -->
 		
-		<br/>
-		<p>
-		<!--	<button id="start">Démarrer</button> -->
-			<button id="copy">Copier votre texte</button>
-		</p>
+		<!-- SPEECH RECOGNITION -->
+		<section class="pricing-section section-padding" id="speech">
+			<div class="container">
+				<!-- SECTION TITLE -->
+				<h2 class="section-title text-center">TALK !</h2>
+				<p class="sub-title text-center">Il suffit de parler et ce que vous dites apparaîtra ci-dessous. Comme par magie !<br/>
+			Ensuite, corrigez votre texte, copiez le et collez le où bon vous semble.</p>
+			
+				
+				<div class="col-md-12 text-center">
+					<div class="form-group contact-form-icon">
+                        <label for="text" class="sr-only">Ce que vous avez dit</label>
+						<i class="fa fa-commenting"></i>
+						<textarea rows="10" cols="60" id="resultat" name="text" type="text"></textarea>
+					</div>
+				</div>
+				
+				<div class="portfolio-button text-center mt-50">
+					<!-- <button class="btn btn-primary portfolio-btn" id="">Start</button> -->
+                    <button class="btn btn-primary portfolio-btn" id="copy">Copy your text</button>
+                </div>
+			</div>
+		</section>
+		<!-- /SPEECH RECOGNITION -->
+		
+		<!-- FOOTER -->
+		<footer class="footer-section">
+			<div class="container">
+				<div class="row mt-30 mb-30">
+					<div class="col-md-12 text-center">
+						<!-- FOOTER COPYRIGHT -->
+						<div class="copyright-info">
+							<a href="http://themebite.com">Design By <span>ThemeBite</span></a>
+						</div>
+
+						<!-- FOOTER SOCIAL ICONS -->
+						<!-- <div class="social-icons mt-30">
+							<a href="https://www.facebook.com/themebite/"><i class="fa fa-facebook"></i></a>
+							<a href="https://twitter.com/themebite/"><i class="fa fa-twitter"></i></a>
+							<a href="https://plus.google.com/themebite/"><i class="fa fa-google-plus"></i></a>
+							<a href="https://github.com/themebite/"><i class="fa fa-github"></i></a>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- /FOOTER -->
 		
 		
+		
+		<!-- JS Files -->
+        <!-- Bootstrap JS -->
+        <script src="js/bootstrap.min.js"></script>
 		<script src="scripts/annexes.js"></script>
 	</body>
 </html>
