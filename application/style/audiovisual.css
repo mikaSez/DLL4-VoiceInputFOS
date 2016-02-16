@@ -42,6 +42,7 @@ canvas {
     border-radius: 100px;
     border: 2px solid white;
     color : white;
+    z-index: 5;
 }
 
 #switchLayout{
@@ -54,6 +55,7 @@ canvas {
     border: 2px solid white;
     background-color: black;
     color : white;   
+    z-index: 2;
 }
 
 .startLayout{

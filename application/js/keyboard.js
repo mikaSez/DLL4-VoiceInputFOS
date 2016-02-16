@@ -28,9 +28,7 @@ function init() {
           sendKeyElement.className = "stop";
           switchIcon.className="icon-mute";
           switchElement.className = "stopLayout"
-          setTimeout(function () {
-                switchElement.className += ' removed';
-        }, 3000);
+         
       } else {
           sendKeyElement.className = "start";
           switchIcon.className="icon-mic";       
