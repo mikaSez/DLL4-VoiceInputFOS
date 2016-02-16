@@ -54,7 +54,7 @@ if (!SpeechRecognition) {
 				texteReconnu += event.results[i][0].transcript;
 			  }
 			}
-			console.log('Résultat = ' + texteReconnu);
+			console.log('Ce que vous avez dit = ' + texteReconnu);
 			document.getElementById('resultat').value += texteReconnu;
 			// Synthèse vocale de ce qui a été reconnu
 			// var u = new SpeechSynthesisUtterance();

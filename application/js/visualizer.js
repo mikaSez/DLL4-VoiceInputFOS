@@ -32,17 +32,17 @@
 				console.info(event.data);
 				dataArray = Uint8Array.from(event.data.data);
 				console.info(dataArray);
-				console.log("new buffer recieved");
+				console.log("new buffer received");
 				break;
 				case  'stop':
 				cancelAnimationFrame(animation);
 				dataArray = new Uint8Array();
 				draw();
-				console.info("stop order recieved");
+				console.info("stop order received");
 				break;
 				case  'start':
 				update();
-				console.info("start order recieved");
+				console.info("start order received");
 				break;
 		}
 		};
