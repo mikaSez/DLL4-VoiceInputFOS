@@ -32,17 +32,9 @@ if (!SpeechRecognition) {
 	};
 	
 	// Evènement de fin de la reconnaissance vocale
-	// A la fin de la reconnaissance (timeout), il est nécessaire de la redémarrer pour avoir une reconnaissance en continue
-	// Ce code a été repris de annyang
 	recognition.onend = function() {
 		console.log('Fin de la reconnaissance');
 		var timeSinceLastStart = new Date().getTime()-lastStartedAt;
-		if (timeSinceLastStart < 1000) {
-			setTimeout(demarrerReconnaissanceVocale, 1000-timeSinceLastStart);
-		} else {
-			// Démarrage de la reconnaissance vocale
-			demarrerReconnaissanceVocale();
-		}
 	};
 
 	// Evènement de résultat de la reconnaissance vocale
@@ -64,13 +56,27 @@ if (!SpeechRecognition) {
 			// speechSynthesis.speak(u);
 		}
 	};
+}
+
+window.onload = function(){
+	var startBtn = document.getElementById('start');
+	var stopBtn = document.getElementById('stop');
+
+	startBtn.addEventListener('click', function(event) {
+		demarrerReconnaissanceVocale();
+	});
 	
-	// Démarrage de la reconnaissance vocale
-	demarrerReconnaissanceVocale();
+	stopBtn.addEventListener('click', function(event) {
+		arreterReconnaissanceVocale();
+	});
 }
 
 function demarrerReconnaissanceVocale() {
 	// Démarrage de la reconnaissance vocale
-	lastStartedAt = new Date().getTime();
-    	recognition.start();
+    recognition.start();
+}
+
+function arreterReconnaissanceVocale() {
+	// Arrêt de la reconnaissance vocale
+	recognition.stop();
 }
