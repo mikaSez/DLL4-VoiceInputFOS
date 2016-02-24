@@ -1,5 +1,5 @@
 # DLL4-VoiceInputFOS
-Application de reconnaissance et saisie vocales intégrée au FirefoxOS. 
+Etude de la réalisation d'une application de reconnaissance et d'une saisie vocales intégrée au FirefoxOS. 
 
 ## Participants
 
@@ -10,14 +10,15 @@ Mikhaïl SADOVNIKOV
 ## Sujet de base
 
 Développement d'une application pour la saisie vocale des textes sur les appareils basés sur FirefoxOS. 
-
 Cette application doit s'intégrer aux applications SMS / e-mail existantes sur les appareils. 
 L'intégration se fait à travers le clavier, comme c'est le cas dans les applications equivalentes existantes sur d'autres plateformes.
 
+## But actuel 
+
+Réalisation d'applications sur les plateformes équivalentes et étude des possibles implémentations d'une reconnaissance vocale sur FirefoxOS. 
 
 ## Autorisations demandées 
 Reconnaissance vocale
-
 Microphone
 
 ## FireSpeech
@@ -28,6 +29,8 @@ Comment l'installer et l'utiliser ? Rendez-vous dans la section "FireSpeech" du 
 
 ## AudioVisual
 
-L'application AudioVisual est une application web, intégrée au clavier de FirefoxOS, qui écoute ce que vous dites.
+L'application AudioVisual est une application web, qui écoute et enregistre ce que vous dites.
+Sur firefoxOS l'application est intégrée au clavier. 
+Le but est de réaliser le maximum des fonctionnalités autours de la reconnaissance vocale.
 
 
