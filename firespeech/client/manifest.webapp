@@ -1,0 +1,37 @@
+{
+  "name": "FireSpeech",
+  "description": "You talk, we write",
+  "type": "privileged",
+  "role": "input",
+  "launch_path": "/settings.html",
+  "icons": {
+    "16": "/icons/icon16x16.png",
+    "48": "/icons/icon48x48.png",
+    "60": "/icons/icon60x60.png",
+    "128": "/icons/icon128x128.png"
+  },
+  "developer": {
+    "name": "Purple",
+    "url": "https://github.com/mikaSez/DLL4-VoiceInputFOS/tree/master/firespeech"
+  },
+  "permissions": {
+    "input": {
+      "description": "Send key events and characters to user focused input fields."
+    },
+   "audio-capture": {
+     "description": "Required to capture audio via getUserMedia"
+   },
+    "speech-recognition" : {
+      "description" : "Speech recognition"
+    }
+  },
+  "inputs": {
+    "firespeech": {
+      "launch_path": "/speech.html",
+      "name": "firespeech",
+      "description": "You talk, we write",
+      "types": ["text", "url", "number"]
+    }
+  },
+  "default_locale": "fr-FR"
+}
