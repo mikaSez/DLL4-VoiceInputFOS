@@ -18,7 +18,9 @@ L'intégration se fait à travers le clavier, comme c'est le cas dans les applic
 Réalisation d'applications sur les plateformes équivalentes et étude des possibles implémentations d'une reconnaissance vocale sur FirefoxOS. 
 
 ## Autorisations demandées 
+
 Reconnaissance vocale
+
 Microphone
 
 ## FireSpeech
@@ -30,7 +32,9 @@ Comment l'installer et l'utiliser ? Rendez-vous dans la section "FireSpeech" du 
 ## AudioVisual
 
 L'application AudioVisual est une application web, qui écoute et enregistre ce que vous dites.
-Sur firefoxOS l'application est intégrée au clavier. 
-Le but est de réaliser le maximum des fonctionnalités autours de la reconnaissance vocale.
+
+Sur FirefoxOS, l'application est intégrée au clavier. 
+
+Le but est de réaliser le maximum des fonctionnalités autour de la reconnaissance vocale.
 
 
